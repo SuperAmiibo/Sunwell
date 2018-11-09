@@ -104,6 +104,7 @@ export default class BodyText extends Component {
 		const centerTop = this.parent.bodyTextCoords.dy + bodyHeight / 2;
 
 		const bodyText = this.parseBodyText(this.parent.getBodyText());
+		
 		this.sunwell.log("Body text", bodyText);
 
 		const words: string[] = [];
@@ -151,24 +152,24 @@ export default class BodyText extends Component {
 				lineHeight *= r;
 			}
 		} else {
-			if (totalLength >= 65) {
+			if (totalLength >= 20) {
 				fontSize = this.sunwell.options.bodyFontSize * 0.95;
 				lineHeight = this.sunwell.options.bodyLineHeight * 0.95;
 			}
 
-			if (totalLength >= 80) {
+			if (totalLength >= 30) {
 				fontSize = this.sunwell.options.bodyFontSize * 0.9;
-				lineHeight = this.sunwell.options.bodyLineHeight * 0.9;
+				lineHeight = this.sunwell.options.bodyLineHeight * 0.95;
 			}
 
-			if (totalLength >= 100) {
+			if (totalLength >= 40) {
 				fontSize = this.sunwell.options.bodyFontSize * 0.8;
-				lineHeight = this.sunwell.options.bodyLineHeight * 0.8;
+				lineHeight = this.sunwell.options.bodyLineHeight * 0.95;
 			}
 
-			if (totalLength >= 120) {
+			if (totalLength >= 50) { //可以加
 				fontSize = this.sunwell.options.bodyFontSize * 0.62;
-				lineHeight = this.sunwell.options.bodyLineHeight * 0.8;
+				lineHeight = this.sunwell.options.bodyLineHeight * 0.95;
 			}
 		}
 
@@ -264,7 +265,7 @@ export default class BodyText extends Component {
 				xPos += bufferRowCtx.measureText(char).width;
 			}
 			const em = bufferRowCtx.measureText("M").width;
-			xPos += 0.275 * em;
+			xPos += 0.0 * em;
 		}
 
 		lineCount++;
@@ -305,7 +306,7 @@ export default class BodyText extends Component {
 		let fontSize = `${size}px`;
 
 		if (this.sunwell.options.bodyLineStyle !== "") {
-			fontSize = `${fontSize}/${this.sunwell.options.bodyLineStyle}`;
+			//fontSize = `${fontSize}/${this.sunwell.options.bodyLineStyle}`;
 		}
 
 		if (bold && italic) {
@@ -361,7 +362,7 @@ export default class BodyText extends Component {
 
 				width += context.measureText(char).width;
 			}
-			width += 0.275 * context.measureText("M").width;
+			width += 0.0 * context.measureText("M").width;
 		}
 
 		return width;

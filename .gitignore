@@ -1,4 +1,6 @@
 node_modules/
-npm-debug.log
-
-/dist/
+dist/
+scripts/out/
+scripts/out_512/
+scripts/textures/
+scripts/tiles/

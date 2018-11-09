@@ -1,0 +1,5 @@
+node sunwell-card-renderer.js --assets-dir=d:\Desktop\Sunwell\assets --output-dir=out_256 --resolution=256 cards.json
+node sunwell-card-renderer.js --assets-dir=d:\Desktop\Sunwell\assets --output-dir=out_256_debug --resolution=256 cards_debug.json
+
+node sunwell-card-renderer.js --assets-dir=d:\Desktop\Sunwell\assets --output-dir=out_512 cards.json
+node sunwell-card-renderer.js --assets-dir=d:\Desktop\Sunwell\assets --output-dir=out_512_debug cards_debug.json

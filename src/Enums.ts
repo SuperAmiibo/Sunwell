@@ -17,6 +17,7 @@ export enum CardClass {
 
 export enum Race {
 	INVALID = 0,
+	ORC = 8,
 	MURLOC = 14,
 	DEMON = 15,
 	MECHANICAL = 17,

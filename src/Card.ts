@@ -87,7 +87,7 @@ export default abstract class Card {
 		}
 
 		this.cardDef = new CardDef(props);
-		this.language = props.language || "enUS";
+		this.language = props.language || "zhCN";
 
 		// Sets the player or opponent HeroPower texture
 		this.opposing = props.opposing || false;
@@ -278,7 +278,13 @@ export default abstract class Card {
 	}
 
 	public getBodyText(): string {
-		return this.cardDef.collectionText || this.cardDef.text;
+		if (this.cardDef.id == 'FB_LK005' || this.cardDef.id == 'ICCA08_030p' || this.cardDef.id == 'GILA_601') {
+			return this.cardDef.text + '1' + this.cardDef.collectionText;
+		} else if (this.cardDef.id == 'DS1h_292' || this.cardDef.id == 'AT_132_HUNTER' || this.cardDef.id == 'DS1h_292_H1' || this.cardDef.id == 'DS1h_292_H1_AT_132') {
+			return this.cardDef.text || this.cardDef.collectionText;
+		} else {
+			return this.cardDef.collectionText || this.cardDef.text;
+		}
 	}
 
 	public drawCardFoundationAsset(context: CanvasRenderingContext2D, ratio: number): void {

@@ -3,7 +3,7 @@ import {ICoords} from "./interfaces";
 
 export default class MinionCard extends Card {
 	public premium = false;
-	public bodyTextColor = "black";
+	public bodyTextColor = "#111";
 	public bodyTextCoords = {
 		dx: 130,
 		dy: 622,

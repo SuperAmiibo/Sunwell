@@ -12,6 +12,6 @@ export default class CostGem extends Gem {
 		this.text = parent.cardDef.cost.toString();
 		this.textColor = parent.costColor;
 		this.textCoords = parent.getCostTextCoords();
-		this.textSize = 130;
+		this.textSize = 160;
 	}
 }

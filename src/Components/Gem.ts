@@ -16,7 +16,7 @@ export default class Gem extends Component {
 
 	constructor(sunwell: Sunwell, parent: Card) {
 		super(sunwell, parent);
-		this.textSize = 124;
+		this.textSize = 150;
 	}
 
 	public assets(): string[] {

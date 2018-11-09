@@ -32,7 +32,7 @@ export default class RaceBanner extends Component {
 
 		const xWidth = bufferCtx.measureText("x").width;
 		for (const char of chars(text)) {
-			bufferCtx.lineWidth = 7;
+			bufferCtx.lineWidth = 5;
 			bufferCtx.strokeStyle = "black";
 			bufferCtx.fillStyle = "black";
 			bufferCtx.fillText(char, x, 10);

@@ -61,7 +61,7 @@ export default class NameBanner extends Component {
 		textContext.textAlign = "left";
 		textContext.textBaseline = "middle";
 
-		let fontSize = 45;
+		let fontSize = 48;
 		let dimensions = [];
 		do {
 			fontSize -= 1;
@@ -109,7 +109,7 @@ export default class NameBanner extends Component {
 				textContext.rotate(p.r);
 
 				// shadow
-				textContext.lineWidth = 9 * (fontSize / 50);
+				textContext.lineWidth = 6 * (fontSize / 50);
 				textContext.strokeStyle = "black";
 				textContext.fillStyle = "black";
 				textContext.fillText(char, 0, 0);

@@ -31,6 +31,7 @@ export default class CardDef {
 		this.elite = props.elite || false;
 		this.health = props.health || 0;
 		this.hideStats = props.hideStats || false;
+		this.id = props.id || 0;
 		this.multiClassGroup = cleanEnum(props.multiClassGroup, MultiClassGroup) as MultiClassGroup;
 		this.name = props.name || "";
 		this.race = cleanEnum(props.race, Race) as Race;

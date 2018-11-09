@@ -2,6 +2,22 @@ import {CardClass, CardSet, CardType, Race, Rarity} from "./Enums";
 import {IPoint} from "./interfaces";
 
 const RaceNames = {
+	[Race.ORC]: {
+		enUS: "ORC",
+		frFR: "ORC",
+		deDE: "ORC",
+		koKR: "ORC",
+		esES: "ORC",
+		esMX: "ORC",
+		ruRU: "ORC",
+		zhTW: "ORC",
+		zhCN: "兽人",
+		itIT: "ORC",
+		ptBR: "ORC",
+		plPL: "ORC",
+		jaJP: "ORC",
+		thTH: "ORC",
+	},
 	[Race.MURLOC]: {
 		enUS: "Murloc",
 		frFR: "Murloc",

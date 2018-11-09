@@ -9,8 +9,16 @@ const Sunwell = require("../dist/sunwell.node");
 
 function renderCard(sunwell, card, filePath, resolution, premium) {
 	if (!card.type || !card.cardClass) {
-		console.log("Skipping", card.id, "(no card to render)");
-		return;
+		if (card.id == "FB_LK_BossSetup001a" || card.id == "FB_LK_BossSetup001b" || card.id == "FB_LK_BossSetup001c") {
+			card.type = 'SPELL';
+			card.cardClass = 'DEATHKNIGHT';
+		} else if (card.id == "TB_SPT_DPromoHP") {
+			card.type = 'HERO_POWER';
+			card.cardClass = 'DEATHKNIGHT';
+		} else {
+			console.log("Skipping", card.id, "(no card to render)");
+			return;
+		}
 	}
 
 	if (
@@ -25,8 +33,10 @@ function renderCard(sunwell, card, filePath, resolution, premium) {
 	}
 
 	if (!fs.existsSync(card.texture)) {
-		console.log("Skipping", card.id, "(texture not found)", card.texture);
-		return;
+		console.log("Notice: ", card.id, "(texture not found)", card.texture);
+		card.texture = "./textures/missing.png";
+		//console.log("Skipping", card.id, "(texture not found)", card.texture);
+		//return;
 	}
 
 	// Turn the texture into an image object
@@ -76,16 +86,18 @@ function drawFromData(sunwell, data, textureDir, outputDir, resolution, premium,
 }
 
 const fonts = {
-	"belwe/belwe-extrabold.ttf": {family: "Belwe"},
-	"franklin-gothic-bold/franklingothic-demicd.ttf": {
-		family: "Franklin Gothic Bold",
+	"GLEI00M_t.ttf": {family: "Belwe"},
+	"BlizzardGlobal.ttf": {
+		family: "Bliz Bold",
 		weight: "bold",
 	},
-	"franklin-gothic-italic/franklingothic-medcdit.ttf": {
-		family: "Franklin Gothic Italic",
+	"BlizzardGlobal.ttf": {
+		family: "Bliz Italic",
 		style: "italic",
 	},
-	"franklin-gothic/franklingothic-medcd.ttf": {family: "Franklin Gothic"},
+	"BlizzardGlobal.ttf": {
+		family: "Bliz"
+	},
 };
 
 function main() {
@@ -105,12 +117,14 @@ function main() {
 	var args = p.parseArgs();
 	var sunwell = new Sunwell({
 		titleFont: "Belwe",
-		bodyFontBold: "Franklin Gothic Bold",
-		bodyFontItalic: "Franklin Gothic Italic",
-		bodyFontBoldItalic: "Franklin Gothic Bold Italic",
+		gemFont: "Belwe",
+		bodyFontBold: "Bliz Bold",
+		bodyFontItalic: "Bliz Italic",
+		bodyFontBoldItalic: "Bliz Bold Italic",
+		bodyFontRegular: "Bliz",
 		bodyFontSize: 38,
 		bodyLineHeight: 40,
-		bodyFontOffset: {x: 0, y: 26},
+		bodyFontOffset: {x: 0, y: 35},
 		assetFolder: path.resolve(args.assets_dir) + "/",
 		debug: args.debug,
 		// platform: new NodePlatform(),

@@ -2,7 +2,7 @@ import Card from "./Card";
 
 export default class HeroCard extends Card {
 	public premium = false;
-	public bodyTextColor = "black";
+	public bodyTextColor = "#111";
 	public bodyTextCoords = {
 		dx: 143,
 		dy: 627,

@@ -1,0 +1,17 @@
+[
+
+
+{"attack":2,
+"cardClass":"WARRIOR",
+"cost":3,
+"dbfId":49251,
+"durability":3,
+"id":"AT_001",
+"mechanics":["TRIGGER_VISUAL"],
+"name":"炽炎长剑",
+"rarity":"FREE",
+"set":"CORE",
+"text":"战后：四五六七八九十一二三四五六七",
+"type":"MINION"}
+
+]
