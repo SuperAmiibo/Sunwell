@@ -1,17 +1,31 @@
 [
 
+{"artist":"","attack":1,
+"race":"DEMON",
+"cardClass":"WARLOCK",
+"collectible":true,"cost":1,"dbfId":855,
+"elite":true,"flavor":"",
+"health":1,"id":"DIY_001","mechanics":["BATTLECRY"],
+"name":"魔化轩辕","rarity":"LEGENDARY",
+"set":"EXPERT1",
+"text":"<b>对战开始时：</b>将十五张“惊骇”牌置入双方的牌库。将一张“无所畏惧”置入你的牌库。","type":"MINION"},
 
-{"attack":2,
-"cardClass":"WARRIOR",
-"cost":3,
-"dbfId":49251,
-"durability":3,
-"id":"AT_001",
-"mechanics":["TRIGGER_VISUAL"],
-"name":"炽炎长剑",
-"rarity":"FREE",
-"set":"CORE",
-"text":"战后：四五六七八九十一二三四五六七",
-"type":"MINION"}
+{"artist":"","cardClass":"WARLOCK",
+"collectible":true,"cost":1,"dbfId":41856,
+"flavor":"",
+"id":"DIY_002","mechanics":["QUEST"],"name":"惊骇",
 
+"set":"EXPERT1",
+"text":"<b>抽到时施放</b>\n你受到2点伤害。",
+"type":"SPELL"},
+
+
+{"artist":"","cardClass":"WARLOCK",
+"collectible":true,"cost":1,"dbfId":41856,
+"flavor":"",
+"id":"DIY_003","mechanics":["QUEST"],"name":"无所畏惧",
+
+"set":"EXPERT1",
+"text":"<b>抽到时施放</b>\n为你的英雄恢复所有生命值。",
+"type":"SPELL"}
 ]
