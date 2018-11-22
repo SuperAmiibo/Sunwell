@@ -15,7 +15,8 @@ def loadCards(cards):
             if (card['type'] != 'ENCHANTMENT'):
                 url = "https://art.hearthstonejson.com/v1/512x/" + id + ".jpg"
                 root = "./textures/"
-                path = root + "/" + id + ".jpg"
+                path = "./" + root + "/" + id + ".jpg"
+                path_blank = "./blank/" + root + "/" + id + ".jpg"
                             
                 img = os.path.exists(path)
                 if (img):
@@ -28,6 +29,8 @@ def loadCards(cards):
                                 f.write(r.content)
                                 print("complete: " + id + "(" + str(index) + "/" + str(length) + ")")
                         except requests.exceptions.HTTPError as e:
+                            with open(path_blank,"wb") as f:
+                                f.write("")
                             print (e)
                     if data[6:] != 'JFIF\0' and data[6:] != 'Exif\0': 
                         try:
@@ -37,18 +40,26 @@ def loadCards(cards):
                                 f.write(r.content)
                                 print("complete: " + id + "(" + str(index) + "/" + str(length) + ")")
                         except requests.exceptions.HTTPError as e:
+                            with open(path_blank,"wb") as f:
+                                f.write("")
                             print (e)
                     print("exsit: success " + id)
 
                 else:
-                    try:
-                        r = requests.get(url)
-                        r.raise_for_status()                
-                        with open(path,"wb") as f:
-                            f.write(r.content)
-                            print("complete: " + id + "(" + str(index) + "/" + str(length) + ")")
-                    except requests.exceptions.HTTPError as e:
-                        print (e)
+                    blank_img = os.path.exists(path_blank)
+                    if (blank_img):
+                        print("blank_exsit: success " + id)
+                    else:
+                        try:
+                            r = requests.get(url)
+                            r.raise_for_status()                
+                            with open(path,"wb") as f:
+                                f.write(r.content)
+                                print("complete: " + id + "(" + str(index) + "/" + str(length) + ")")
+                        except requests.exceptions.HTTPError as e:
+                            with open(path_blank,"wb") as f:
+                                f.write("")
+                            print (e)
                 
         
 def loadJson():

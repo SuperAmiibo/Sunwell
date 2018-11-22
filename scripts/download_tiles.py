@@ -14,8 +14,9 @@ def loadCards(cards):
         if "type" in card.keys():
             if (card['type'] != 'ENCHANTMENT'):
                 url = "https://art.hearthstonejson.com/v1/tiles/" + id + ".png"
-                root = "./tiles/"
-                path = root + "/" + id + ".png"
+                root = "/tiles/"
+                path = "./" + root + "/" + id + ".png"
+                path_blank = "./blank/" + root + "/" + id + ".png"
                             
                 img = os.path.exists(path)
                 if (img):
@@ -28,18 +29,26 @@ def loadCards(cards):
                                 f.write(r.content)
                                 print("complete: " + id + "(" + str(index) + "/" + str(length) + ")")
                         except requests.exceptions.HTTPError as e:
+                            with open(path_blank,"wb") as f:
+                                f.write("")
                             print (e)
                     print("exsit: success " + id)
 
                 else:
-                    try:
-                        r = requests.get(url)
-                        r.raise_for_status()                
-                        with open(path,"wb") as f:
-                            f.write(r.content)
-                            print("complete: " + id + "(" + str(index) + "/" + str(length) + ")")
-                    except requests.exceptions.HTTPError as e:
-                        print (e)
+                    blank_img = os.path.exists(path_blank)
+                    if (blank_img):
+                        print("blank_exsit: success " + id)
+                    else:
+                        try:
+                            r = requests.get(url)
+                            r.raise_for_status()                
+                            with open(path,"wb") as f:
+                                f.write(r.content)
+                                print("complete: " + id + "(" + str(index) + "/" + str(length) + ")")
+                        except requests.exceptions.HTTPError as e:
+                            with open(path_blank,"wb") as f:
+                                f.write("")
+                            print (e)
                 
         
 def loadJson():
